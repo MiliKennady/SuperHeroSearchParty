@@ -2,8 +2,8 @@ var fav = JSON.parse(localStorage.getItem("favList"));
 if (fav == null) fav = [];
 
 const inputName = document.getElementById("inputName"); // the input in our search bar
-const snackbar = document.getElementById("snackbar");
-const results = document.getElementById("results");
+const snackbar = document.getElementById("snackbar"); // the toast message
+const results = document.getElementById("results"); // results display area
 
 // SuperHero Name Input - getting the input from the searchbar
 inputName.onkeyup = function () {
@@ -55,14 +55,14 @@ function createCard(data) {
       card.appendChild(cardImage);
 
       // Adding Details button to all cards
-      detailsButton.innerHTML = "Click here to know more about!";
+      detailsButton.innerHTML = "Click here to know more!";
       cardContainer.appendChild(detailsButton);
 
       //If search results already in My Favourites List,
       //Show Add button else Remove button
       let cardId = data.results[i].id;
       if (fav.includes(cardId)) {
-        favButton.innerHTML = "I guess I am not your favourite anymore!";
+        favButton.innerHTML = "Remove me from your favorites list...";
         favButton.classList.add("bg-red");
       } else {
         favButton.innerHTML = "Add me to your favorites!";
@@ -115,7 +115,7 @@ results.onclick = function (event) {
   }
 };
 
-//Show Snackbar on Favourites' Change
+//Show toast message on Favourites' Change
 function showSnackbar(value) {
   //Adding Visibility to Snackbar
   snackbar.classList.add("visible");

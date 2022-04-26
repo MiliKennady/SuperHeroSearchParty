@@ -30,7 +30,7 @@ function createCard(data, id) {
   cardName.classList.add("superhero-name");
   var favButton = document.createElement("div");
   var detailsButton = document.createElement("div");
-  detailsButton.innerHTML = "Know Me";
+  detailsButton.innerHTML = "Know more about me";
   detailsButton.classList.add("detailsButton");
   detailsButton.setAttribute("id", "details-btn");
 
@@ -51,7 +51,7 @@ favCard.onclick = function (event) {
   //Check click type? Favourites button or Details button
   var target = event.target;
   console.log("target", target);
-  //If 'Know Me' button is clicked.
+  //If details button is clicked.
   if (target.id === "details-btn") {
     var id = target.parentNode.getAttribute("id");
     console.log("id", id);
